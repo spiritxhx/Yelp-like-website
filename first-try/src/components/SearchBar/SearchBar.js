@@ -13,6 +13,11 @@ const getSortByClass=sortByOption => {
         return '';
     }
 }
+const handleSortByChange=sortByOption=>{
+    this.setState({
+        sortBy: sortByOption
+    });
+}
 
 class SearchBar extends React.Component {
     constructor(props){
