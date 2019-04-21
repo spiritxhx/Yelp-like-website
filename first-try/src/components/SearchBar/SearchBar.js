@@ -6,18 +6,19 @@ const sortByOptions = {
     "Highest Rated": 'rating',
     "Most Reviewed": 'review_count'
 }
-const getSortByClass=sortByOption => {
-    if (this.state.sortBy===sortByOption){
-        return 'active';
-    } else {
-        return '';
-    }
-}
-const handleSortByChange=sortByOption=>{
-    this.setState({
-        sortBy: sortByOption
-    });
-}
+// It seems this function should be in the scope of component!! 
+// const getSortByClass=sortByOption => {
+//     if (this.state.sortBy===sortByOption){
+//         return 'active';
+//     } else {
+//         return '';
+//     }
+// }
+// const handleSortByChange=sortByOption=>{
+//     this.setState({
+//         sortBy: sortByOption
+//     });
+// }
 
 class SearchBar extends React.Component {
     constructor(props){
@@ -28,11 +29,27 @@ class SearchBar extends React.Component {
             sortBy:'best_match'
         };
     }
+    getSortByClass=sortByOption => {
+        if (this.state.sortBy===sortByOption){
+            return 'active';
+        } else {
+            return '';
+        }
+    }
+    handleSortByChange=sortByOption=>{
+        this.setState({
+            sortBy: sortByOption
+        });
+    }
     renderSortByOptions() {
         return Object.keys(sortByOptions).map(sortByOption=> {
             let sortByOptionValue = sortByOptions[sortByOption];
             return (
-                <li className={getSortByClass(sortByOptionValue)} key = {sortByOptionValue}>{sortByOption}</li>
+                <li 
+                    className={this.getSortByClass(sortByOptionValue)} 
+                    key = {sortByOptionValue}>{sortByOption} 
+                    onClick={this.handleSortByChange.bind(this, sortByOptionValue)}
+                </li>
             );
         });
     }
