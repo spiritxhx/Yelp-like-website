@@ -6,6 +6,13 @@ const sortByOptions = {
     "Highest Rated": 'rating',
     "Most Reviewed": 'review_count'
 }
+const getSortByClass=sortByOption => {
+    if (this.state.sortBy===sortByOption){
+        return 'active';
+    } else {
+        return '';
+    }
+}
 
 class SearchBar extends React.Component {
     constructor(props){
