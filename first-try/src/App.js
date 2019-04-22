@@ -5,16 +5,16 @@ import SearchBar from './components/SearchBar/SearchBar';
 import Yelp from './util/Yelp';
 
 const business = {
-  imageSrc: 'https://s3.amazonaws.com/codecademy-content/programs/react/ravenous/pizza.jpg',
+  imageSrc: '',
   id: '',
-  name: 'MarginOtto Pizzeria',
-  address: '1010 Paddington Way',
-  city: 'Flavortown',
-  state: 'NY',
-  zipCode: '10101',
-  category: 'Italian',
-  rating: 4.5,
-  reviewCount: 90
+  name: '',
+  address: '',
+  city: '',
+  state: '',
+  zipCode: '',
+  category: '',
+  rating: 0,
+  reviewCount: 0
 }
 const businesses=[
   business, 
@@ -26,6 +26,13 @@ const businesses=[
 ];
 
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      businesses: []
+    };
+    this.searchYelp=this.searchYelp.bind(this);
+  }
   searchYelp = (term, location, sortBy) => {
       console.log('Searching Yelp with Pizza, Brooklyn, best_match');
   }
