@@ -13,5 +13,24 @@ const search = (term, location, sortBy) =>{
         }
     ).then (response=>{
         return response.json();
+    }).then(jsonResponse=>{
+        if(jsonResponse.business){
+            return jsonResponse.business.map(business=>{
+                return {
+                    id: business.id, 
+                    imageSrc: business.image_url, 
+                    name: business.name, 
+                    address: business.address, 
+                    city: business.city, 
+                    state: business.state, 
+                    zipCode: business.zipCode, 
+                    category: business.category, 
+                    rating: business.rating, 
+                    reviewCount: business.reviewCount
+                };
+            });
+        }
     });
 };
+
+export default Yelp;
