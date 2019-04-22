@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import BusinessList from './components/BusinessList/BusinessList';
 import SearchBar from './components/SearchBar/SearchBar';
-import Yelp from './util/Yelp';
+import {Yelp} from './util/Yelp';
 
 const business = {
   imageSrc: '',
@@ -34,7 +34,7 @@ export default class App extends Component {
     this.searchYelp=this.searchYelp.bind(this);
   }
   searchYelp = (term, location, sortBy) => {
-      console.log('Searching Yelp with Pizza, Brooklyn, best_match');
+      Yelp.search(term, location, sortBy);
   }
   render() {
     return (
