@@ -29,10 +29,6 @@ export const Yelp={
                 };
             });
         }
-    }).then(function(businesses){
-        App.setState({
-            businesses: businesses
-        });
     });
 }
 }
