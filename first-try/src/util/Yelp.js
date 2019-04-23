@@ -13,8 +13,8 @@ export const Yelp={
     ).then (response=>{
         return response.json();
     }).then(jsonResponse=>{
-        if(jsonResponse.business){
-            return jsonResponse.business.map(business=>{
+        if(jsonResponse.businesses){
+            return jsonResponse.businesses.map(business=>{
                 return {
                     id: business.id, 
                     imageSrc: business.image_url, 

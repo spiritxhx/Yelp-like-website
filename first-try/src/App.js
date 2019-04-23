@@ -4,26 +4,26 @@ import BusinessList from './components/BusinessList/BusinessList';
 import SearchBar from './components/SearchBar/SearchBar';
 import {Yelp} from './util/Yelp';
 
-const business = {
-  imageSrc: '',
-  id: '',
-  name: '',
-  address: '',
-  city: '',
-  state: '',
-  zipCode: '',
-  category: '',
-  rating: 0,
-  reviewCount: 0
-}
-const businesses=[
-  business, 
-  business, 
-  business, 
-  business, 
-  business,
-  business
-];
+// const business = {
+//   imageSrc: '',
+//   id: '',
+//   name: '',
+//   address: '',
+//   city: '',
+//   state: '',
+//   zipCode: '',
+//   category: '',
+//   rating: 0,
+//   reviewCount: 0
+// }
+// const businesses=[
+//   business, 
+//   business, 
+//   business, 
+//   business, 
+//   business,
+//   business
+// ];
 
 export default class App extends Component {
   constructor(props){
@@ -45,7 +45,7 @@ export default class App extends Component {
       <div className="App">
         <h1>ravenous</h1>
         <SearchBar searchYelp={this.searchYelp} />
-        <BusinessList businesses={businesses} /> 
+        <BusinessList businesses={this.state.businesses} /> 
       </div>
     );
   }
